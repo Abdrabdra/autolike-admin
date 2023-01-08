@@ -4,6 +4,6 @@ import { baseQuery } from "../rtkApi";
 export default createApi({
   reducerPath: "cityApi",
   baseQuery: baseQuery,
-  tagTypes: ["city"],
+  tagTypes: ["City"],
   endpoints: () => ({}),
 });

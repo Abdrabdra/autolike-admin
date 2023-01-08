@@ -4,7 +4,6 @@ import ListUser from "./ListUser";
 const MainUser = () => {
   return (
     <>
-      <UserStatistics />
       <ListUser />
     </>
   );

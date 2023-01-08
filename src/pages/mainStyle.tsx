@@ -9,6 +9,6 @@ export const HeaderBlock = styled("div")`
 export const Poster = styled("div")`
   font-size: clamp(36px, 2.1875vw, 42px);
   font-weight: 800;
-  color: #2398ab;
+  color: #222222;
   letter-spacing: 0em;
 `;

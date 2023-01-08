@@ -5,10 +5,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import SortOutlinedIcon from "@mui/icons-material/SortOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import TextSnippetOutlinedIcon from "@mui/icons-material/TextSnippetOutlined";
-import HobbyTab from "./HobbyTab";
+
 import CityTab from "./CityTab";
-import HadithTab from "./HadithTab";
+import MarkaTab from "./MarkaTab";
+import ModelTab from "./ModelTab";
+import BodyTab from "./BodyTab";
+import GenerationTab from "./GenerationTab";
+import TagTab from "./TagTab";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -49,44 +52,24 @@ const ManagementSection = () => {
   const [value, setValue] = React.useState(0);
 
   useEffect(() => {
-    if (location.pathname === "/app/management/hobby/list") {
-      setValue(0);
-    }
-    if (location.pathname === "/app/management/hobby/list") {
-      setValue(0);
-    }
-    if (location.pathname === "/app/management/hobby/create") {
-      setValue(0);
-    }
-    if (location.pathname === "/app/management/hobby/one/:hobbyId") {
-      setValue(0);
-    }
     if (location.pathname === "/app/management/city") {
+      setValue(0);
+    }
+    if (location.pathname === "/app/management/marka") {
       setValue(1);
     }
-    if (location.pathname === "/app/management/city/list") {
-      setValue(1);
-    }
-    if (location.pathname === "/app/management/city/create") {
-      setValue(1);
-    }
-    if (location.pathname === "/app/management/city/one/:cityId") {
-      setValue(1);
-    }
-    if (location.pathname === "/app/management/hadith") {
+    if (location.pathname === "/app/management/model") {
       setValue(2);
     }
-    if (location.pathname === "/app/management/hadith/list") {
-      setValue(2);
+
+    if (location.pathname === "/app/management/body") {
+      setValue(3);
     }
-    if (location.pathname === "/app/management/hadith/create") {
-      setValue(2);
+    if (location.pathname === "/app/management/generation") {
+      setValue(4);
     }
-    if (location.pathname === "/app/management/hadith/hadithes/:hadithId") {
-      setValue(2);
-    }
-    if (location.pathname === "/app/management/hadith/hadith/description") {
-      setValue(2);
+    if (location.pathname === "/app/management/tags") {
+      setValue(5);
     }
   }, [location]);
 
@@ -113,33 +96,57 @@ const ManagementSection = () => {
       >
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs">
           <Tab
-            icon={<PeopleOutlinedIcon />}
-            label="Хобби"
-            {...a11yProps(0)}
-            onClick={() => navigate("/app/management/hobby/list")}
-          />
-          <Tab
             icon={<SortOutlinedIcon />}
             label="Города"
-            {...a11yProps(1)}
-            onClick={() => navigate("/app/management/city/list")}
+            onClick={() => navigate("/app/management/city")}
+          />
+          <Tab
+            icon={<PeopleOutlinedIcon />}
+            label="Марка"
+            onClick={() => navigate("/app/management/marka")}
           />
           <Tab
             icon={<LocalOfferOutlinedIcon />}
-            label="Хадисы"
-            {...a11yProps(2)}
-            onClick={() => navigate("/app/management/hadith/list")}
+            label="Модель"
+            onClick={() => navigate("/app/management/model")}
+          />
+
+          <Tab
+            icon={<LocalOfferOutlinedIcon />}
+            label="Кузов"
+            onClick={() => navigate("/app/management/body")}
+          />
+          <Tab
+            icon={<LocalOfferOutlinedIcon />}
+            label="Поколение"
+            onClick={() => navigate("/app/management/generation")}
+          />
+          <Tab
+            icon={<LocalOfferOutlinedIcon />}
+            label="Тэги"
+            onClick={() => navigate("/app/management/tags")}
           />
         </Tabs>
       </Box>
+
       <TabPanel value={value} index={0}>
-        <HobbyTab />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
         <CityTab />
       </TabPanel>
+      <TabPanel value={value} index={1}>
+        <MarkaTab />
+      </TabPanel>
       <TabPanel value={value} index={2}>
-        <HadithTab />
+        <ModelTab />
+      </TabPanel>
+
+      <TabPanel value={value} index={3}>
+        <BodyTab />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        <GenerationTab />
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        <TagTab />
       </TabPanel>
     </Box>
   );

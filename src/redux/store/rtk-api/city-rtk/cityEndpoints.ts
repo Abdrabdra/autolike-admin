@@ -1,33 +1,35 @@
-import {ICreateManagementBody, IManagementResponse} from "./city.type";
-import hobbyApi from "./cityApi";
+import { ICreateRegion, IGetRegion } from "../../../../types/Management/Region";
+import cityApi from "./cityApi";
 
-export const cityEndpoints = hobbyApi.injectEndpoints({
+export const cityEndpoints = cityApi.injectEndpoints({
   endpoints: (builder) => ({
-    getCities: builder.query<IManagementResponse[],any>({
+    getCity: builder.query<IGetRegion[], any>({
       query: () => ({
         url: `region`,
-        method:"GET"
       }),
-      providesTags: ["city"],
+      providesTags: ["City"],
     }),
-    createCity: builder.mutation<any,ICreateManagementBody>({
+    createCity: builder.mutation<any, ICreateRegion>({
       query: (data) => ({
         url: `region`,
-        method:"POST",
-        body:data
+        method: "POST",
+        body: data,
       }),
-      invalidatesTags: ["city"],
+      invalidatesTags: ["City"],
     }),
-    // deleteCity: builder.mutation<any,number>({
-    //   query: (id) => ({
-    //     url: `hobby/remove-city/${id}`,
-    //     method:"DELETE",
-    //
-    //   }),
-    //   invalidatesTags: ["city"],
-    // })
-
+    createCityIn: builder.mutation<any, ICreateRegion>({
+      query: (data) => ({
+        url: `region/city`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["City"],
+    }),
   }),
 });
 
-export const {useCreateCityMutation,useGetCitiesQuery} = cityEndpoints;
+export const {
+  useGetCityQuery,
+  useCreateCityMutation,
+  useCreateCityInMutation,
+} = cityEndpoints;

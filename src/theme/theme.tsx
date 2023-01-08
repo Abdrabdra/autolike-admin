@@ -331,11 +331,11 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#2398AB",
-      light: "#E4FFF9",
+      main: "#222222",
+      light: "#F4F4F4",
     },
     secondary: {
-      main: "#E4FFF9",
+      main: "#F4F4F4",
       light: "#65B7C4",
     },
     error: {

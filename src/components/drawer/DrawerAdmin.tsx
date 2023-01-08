@@ -4,18 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 // icons
-// @ts-ignore: Ts че ты хочешь?
-import { ReactComponent as ProfileLogo } from "../../assets/svg/Vectorprofile.svg";
-// @ts-ignore: Ts че ты хочешь?
-import { ReactComponent as HomeLogo } from "../../assets/svg/Vectorhome.svg";
-// @ts-ignore: Ts че ты хочешь?
-import { ReactComponent as UsersLogo } from "../../assets/svg/Vectorusers.svg";
-// @ts-ignore: Ts че ты хочешь?
-import { ReactComponent as ComplainsLogo } from "../../assets/svg/Vectorcomplains.svg";
-// @ts-ignore: Ts че ты хочешь?
-import { ReactComponent as EmployeesLogo } from "../../assets/svg/Vectoremployees.svg";
-// @ts-ignore: Ts че ты хочешь?
-import { ReactComponent as LogoutLogo } from "../../assets/svg/Vectorlogout.svg";
+import PersonOutlineRoundedIcon from "@mui/icons-material/PersonOutlineRounded";
 
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
@@ -31,6 +20,11 @@ import {
 // store
 import { logout } from "../../redux/store/reducers/auth/auth.action";
 import { useTypedSelector } from "../../redux/store";
+
+import HeaderLogo from "../../assets/images/drawer_header.svg";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 
 const DrawerAdmin = () => {
   const dispatch = useDispatch();
@@ -62,44 +56,31 @@ const DrawerAdmin = () => {
           style={{ textDecoration: "none", color: "#000", fontSize: "27px" }}
         >
           <Toolbar sx={{ justifyContent: "center", mt: "23px", mb: "23px" }}>
-            <StyledBox />
-            <Typography
+            <Box
+              component="img"
               sx={{
-                fontFamily: "Gilroy",
-                fontSize: "42px",
-                lineHeight: "40px",
-                letterSpacing: "0.2em",
-                color: "primary.main",
+                width: 213,
+                height: 33,
               }}
-            >
-              HITBA
-            </Typography>
+              alt="The house from the offer."
+              src={HeaderLogo}
+            />
           </Toolbar>
         </NavLink>
         <Box sx={{ width: "300px", height: "1px", background: "#2398AB" }} />
         <List sx={{ p: 0, pt: "40px" }}>
-          {role && role === "WORKER" && (
-            <StyledNavLink to="profile">
-              <StyledListItem>
-                <StyledListItemIcon>
-                  <ProfileLogo />
-                </StyledListItemIcon>
-                Профиль
-              </StyledListItem>
-            </StyledNavLink>
-          )}
-          <StyledNavLink to="home">
+          {/* <StyledNavLink to="profile">
             <StyledListItem>
               <StyledListItemIcon>
-                <HomeLogo />
+                <PersonOutlineRoundedIcon />
               </StyledListItemIcon>
-              Главная
+              Профиль
             </StyledListItem>
-          </StyledNavLink>
+          </StyledNavLink> */}
           <StyledNavLink to="users">
             <StyledListItem>
               <StyledListItemIcon>
-                <UsersLogo />
+                <PeopleOutlinedIcon />
               </StyledListItemIcon>
               Пользователи
             </StyledListItem>
@@ -107,22 +88,20 @@ const DrawerAdmin = () => {
           <StyledNavLink to="complaints">
             <StyledListItem>
               <StyledListItemIcon>
-                <ComplainsLogo />
+                <MenuBookIcon />
               </StyledListItemIcon>
-              Список жалоб
+              Список Объявлений
             </StyledListItem>
           </StyledNavLink>
-          {role && role === "SUPER-ADMIN" && (
-            <StyledNavLink to="employees">
-              <StyledListItem>
-                <StyledListItemIcon>
-                  <EmployeesLogo />
-                </StyledListItemIcon>
-                Персонал
-              </StyledListItem>
-            </StyledNavLink>
-          )}
-          <StyledNavLink to="management/hobby/list">
+          <StyledNavLink to="employees">
+            <StyledListItem>
+              <StyledListItemIcon>
+                <EngineeringOutlinedIcon />
+              </StyledListItemIcon>
+              Персонал
+            </StyledListItem>
+          </StyledNavLink>
+          <StyledNavLink to="management">
             <StyledListItem>
               <StyledListItemIcon>
                 <SettingsOutlinedIcon color="primary" />
@@ -140,9 +119,7 @@ const DrawerAdmin = () => {
               onClick={() => dispatch(logout())}
               sx={{ color: "#F18989", mb: "35px" }}
             >
-              <StyledListItemIcon>
-                <LogoutLogo />
-              </StyledListItemIcon>
+              <StyledListItemIcon>{/* <LogoutLogo /> */}</StyledListItemIcon>
               Выйти
             </StyledListItem>
           </StyledNavLink>

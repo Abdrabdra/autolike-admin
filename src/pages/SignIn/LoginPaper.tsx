@@ -24,31 +24,7 @@ const LoginPaper = () => {
           },
         }}
       >
-        <Box
-          sx={{
-            display: { lg: "none", xs: "block" },
-          }}
-        >
-          <AuthBg
-            style={{
-              width: "clamp(200px, 20.83vw, 400px)",
-              height: "clamp(200px, 20.83vw, 400px)",
-            }}
-          />
-        </Box>
         <LoginForm />
-        <Box
-          sx={{
-            display: { lg: "block", xs: "none" },
-          }}
-        >
-          <AuthBg
-            style={{
-              width: "clamp(300px, 46.875vw, 900px)",
-              height: "clamp(300px, 46.875vw, 900px)",
-            }}
-          />
-        </Box>
       </Container>
     </LoginBlock>
   );

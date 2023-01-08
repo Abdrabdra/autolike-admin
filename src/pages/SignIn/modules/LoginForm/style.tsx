@@ -36,7 +36,7 @@ export const InputBox = styled("div")(({ theme }) => ({
 }));
 
 export const InputUpperLabel = (props: any) => (
-  <Typography variant="h3" sx={{ mb: "clamp(12px, 1.04vw, 20px)" }}>
+  <Typography variant="h3" sx={{ mb: "clamp(12px, 1.04vw, 20px)", color: "primary.main" }}>
     {props.children}
   </Typography>
 );

@@ -54,7 +54,7 @@ export const StyledListItem = (props: any) => (
   />
 );
 export const StyledListItemIcon = (props: any) => (
-  <ListItemIcon sx={{ display: "flex", justifyContent: "center" }} {...props} />
+  <ListItemIcon sx={{ display: "flex", justifyContent: "center", color: "primary.main" }} {...props} />
 );
 export const StyledItemText = (props: any) => (
   <Typography

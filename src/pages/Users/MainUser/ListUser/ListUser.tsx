@@ -127,7 +127,7 @@ const UserTable = () => {
               <StyledHeadCell>Пользователь</StyledHeadCell>
               <StyledHeadCell>Телефон</StyledHeadCell>
               <StyledHeadCell>Статус</StyledHeadCell>
-              <StyledHeadCell>Жалобы</StyledHeadCell>
+              <StyledHeadCell>Объявления</StyledHeadCell>
             </StyledHeadRow>
             <Styled.TableDivider />
           </TableHead>

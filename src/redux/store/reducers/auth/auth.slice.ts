@@ -9,7 +9,7 @@ interface IInitState {
 }
 
 const initialState: IInitState = {
-  isAuth: false,
+  isAuth: true,
   error: null,
   status: ActionsEnum.IDLE,
 };
