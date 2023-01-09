@@ -27,12 +27,10 @@ import {
     useGetMyBlockedProfilesByIdQuery,
     useGetMyBlockedProfilesQuery
 } from "../../../redux/store/rtk-api/staff-rtk/staffEndpoints";
-import OneUserMessage from "../../Complaints/ComplaintsSection/OneUserMessage";
 // @ts-ignore
 import userPhoto from "../../../assets/images/peoplePhoto.jpeg";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
-import ComplainedData from "../../Complaints/ComplaintsSection/ComplainedData";
 import Paper from "@mui/material/Paper";
 
 

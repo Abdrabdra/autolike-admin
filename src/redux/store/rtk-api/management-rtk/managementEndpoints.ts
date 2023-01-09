@@ -58,7 +58,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
           url: `/body-type`,
         };
       },
-      providesTags: ["management"],
+      providesTags: ["body"],
     }),
     createBody: builder.mutation<any, { title: string }>({
       query: (body) => {

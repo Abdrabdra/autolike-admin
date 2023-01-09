@@ -2,12 +2,9 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 // import ComplaintUserMessages from "../../Complaints/ComplaintsSection/ComplaintUserMessages";
 // import ComplaintUsersInfo from "../../Complaints/ComplaintsSection/ComplaintUsersInfo";
-import VisitDiagram from "../../Complaints/ComplaintsSection/VisitDiagram";
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import UserInfo from "./UserInfo";
-import ComplaintUsersInfo from "../../Complaints/ComplaintsSection/ComplaintUsersInfo";
-import ComplaintUserMessages from "../../Complaints/ComplaintsSection/ComplaintUserMessages";
 import { useGetOneProfileQuery } from "../../../redux/store/rtk-api/user-rtk/userEndpoints";
 import UserComplains from "./UserComplains";
 import UserSendReport from "./UserSendReport";

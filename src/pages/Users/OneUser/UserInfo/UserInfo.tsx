@@ -1,7 +1,7 @@
 import { Box, Grid, Typography, Button, Stack } from "@mui/material";
 import { FC } from "react";
 import { useParams } from "react-router-dom";
-import { useBlockUserMutation } from "../../../../redux/store/rtk-api/complaint-rtk/complaintEndpoints";
+
 import { IGetOneProfile } from "../../../../redux/store/rtk-api/user-rtk/user.type";
 import { useGetOneProfileQuery } from "../../../../redux/store/rtk-api/user-rtk/userEndpoints";
 
@@ -16,10 +16,10 @@ const UserInfo: FC<Props> = ({ query }) => {
 
   const { data, isLoading, refetch } = query(userId);
 
-  const [block, { isLoading: blockLoading }] = useBlockUserMutation();
+  // const [block, { isLoading: blockLoading }] = useBlockUserMutation();
 
   const handleBlock = () => {
-    block(Number(userId));
+    // block(Number(userId));
     refetch();
   };
   

@@ -8,5 +8,9 @@ body {
   font-family: "Proxima Nova", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F4F4F4;
+  background: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -85,12 +85,12 @@ const DrawerAdmin = () => {
               Пользователи
             </StyledListItem>
           </StyledNavLink>
-          <StyledNavLink to="complaints">
+          <StyledNavLink to="announcement">
             <StyledListItem>
               <StyledListItemIcon>
                 <MenuBookIcon />
               </StyledListItemIcon>
-              Список Объявлений
+              Объявления
             </StyledListItem>
           </StyledNavLink>
           <StyledNavLink to="employees">

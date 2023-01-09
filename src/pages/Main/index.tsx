@@ -12,14 +12,13 @@ import Layout from "../../components/layouts";
 //pages
 import Profile from "../Profile";
 import Users from "../Users";
-import ComplaintsPage from "../Complaints";
 import StaffPage from "../Staff";
-import ComplaintsUser from "../Complaints/ComplaintsSection/ComplaintsUser";
 import Edit from "../Staff/StaffSection/Edit";
 import Worker from "../Staff/StaffSection/Worker";
 import Create from "../Staff/StaffSection/Create";
 
 import Management from "../Management";
+import Announcement from "../Announcement";
 
 const Main = () => {
   // debugger
@@ -37,8 +36,12 @@ const Main = () => {
           <Route index element={<Navigate to="users" />} />
           {/* <Route path="profile/*" element={<Profile />} /> */}
           <Route path="users/*" element={<Users />} />
-          <Route path="complaints/" element={<ComplaintsPage />} />
-          <Route path="complaints/user" element={<ComplaintsUser />} />
+
+          <Route path="announcement/*" element={<Announcement />} />
+
+          {/* <Route path="complaints/" element={<ComplaintsPage />} />
+          <Route path="complaints/user" element={<ComplaintsUser />} /> */}
+
           <Route path="employees/" element={<StaffPage />} />
           <Route path="employees/one-worker" element={<Worker />} />
           <Route path="employees/one-worker/edit" element={<Edit />} />
