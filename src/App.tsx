@@ -17,7 +17,14 @@ import { defaultState } from "./context/MainContext";
 function App() {
   const { isAuth } = useTypedSelector((state) => state.auth);
 
+  React.useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      store.dispatch(refresh());
+    }
+  }, []);
+
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Context
   const [lastPage, setLastPage] = React.useState(defaultState.lastPage);
