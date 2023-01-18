@@ -8,7 +8,7 @@ export const login = createAsyncThunk(
   async function (creds: ILogin, { rejectWithValue }) {
     try {
       const response = await AuthService.login(creds);
-      localStorage.setItem("access_token", response.data.access_token);
+      localStorage.setItem("access_token", response.data);
       return response.data;
     } catch (e) {
       return rejectWithValue(e);

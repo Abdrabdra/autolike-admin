@@ -1,5 +1,6 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { FC } from "react";
+import { $image_api } from "../../../../api";
 import { IOneAnnouncementResponse } from "../../../../types/Announcement/OneAnnouncement.type";
 import { StatementEnum, WheelEnum } from "../../../../types/Enums";
 import numberWithSpaces from "../../../../utils/numberWithSpaces";
@@ -44,7 +45,19 @@ const AnnounceBox: FC<Props> = ({ aData }) => {
             borderRadius: "10px",
           }}
         >
-          Picture
+          <Box
+            component={"img"}
+            src={`${$image_api}${a?.images[0]?.image}`}
+            sx={{
+              flex: 1,
+              height: "100%",
+              borderRadius: "15px",
+
+              backgroundRepeat: "no-repeat",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
         </Stack>
       </Stack>
       <Stack spacing={2} sx={{ flex: 1 }}>

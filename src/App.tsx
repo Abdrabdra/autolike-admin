@@ -17,11 +17,11 @@ import { defaultState } from "./context/MainContext";
 function App() {
   const { isAuth } = useTypedSelector((state) => state.auth);
 
-  React.useEffect(() => {
-    if (localStorage.getItem("access_token")) {
-      store.dispatch(refresh());
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   if (localStorage.getItem("access_token")) {
+  //     store.dispatch(refresh());
+  //   }
+  // }, []);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -36,7 +36,7 @@ function App() {
     <>
       <MainContext.Provider value={{ lastPage, setPage }}>
         <Routes>
-          {/* <Route path="/" element={<Navigate to={isAuth ? "/app" : "/auth"} />} /> */}
+          <Route path="/" element={<Navigate to={isAuth ? "/app" : "/auth"} />} />
           <Route
             path="/app/*"
             element={isAuth ? <Main /> : <Navigate to="/auth" />}

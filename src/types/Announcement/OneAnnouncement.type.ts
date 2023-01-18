@@ -18,7 +18,7 @@ export interface IOneAnnouncementResponse {
       state: StatementEnum;
       customsClearance: boolean;
     };
-    images: string[];
+    images: IOneImage[];
     author: {
       id: number;
       firstName: string;
@@ -41,4 +41,9 @@ export interface IOneAnnouncementResponse {
 interface IOneTitle {
   id: number;
   title: string;
+}
+
+export interface IOneImage {
+  id: number;
+  image: string;
 }

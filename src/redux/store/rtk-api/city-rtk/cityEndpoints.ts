@@ -9,6 +9,7 @@ export const cityEndpoints = cityApi.injectEndpoints({
       }),
       providesTags: ["City"],
     }),
+
     createCity: builder.mutation<any, ICreateRegion>({
       query: (data) => ({
         url: `region`,
@@ -25,11 +26,30 @@ export const cityEndpoints = cityApi.injectEndpoints({
       }),
       invalidatesTags: ["City"],
     }),
+
+    deleteCity: builder.mutation<any, { id: number }>({
+      query: (arg) => ({
+        url: `region/${arg.id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["City"],
+    }),
+    deleteCityUnder: builder.mutation<any, { id: number }>({
+      query: (arg) => ({
+        url: `region/city/${arg.id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["City"],
+    }),
   }),
 });
 
 export const {
   useGetCityQuery,
+
   useCreateCityMutation,
   useCreateCityInMutation,
+
+  useDeleteCityMutation,
+  useDeleteCityUnderMutation,
 } = cityEndpoints;

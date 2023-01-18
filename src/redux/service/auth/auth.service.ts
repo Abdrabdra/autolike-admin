@@ -5,8 +5,8 @@ import { ILogin } from "../../../types/IAuth";
 import { ILoginResponse } from "../../../types/ILogin";
 
 export class AuthService {
-  static async login(creds: ILogin): Promise<AxiosResponse<ILoginResponse>> {
-    return $api.post<ILoginResponse>(`auth/login`, creds);
+  static async login(creds: ILogin): Promise<AxiosResponse<string>> {
+    return $api.post<string>(`auth/login`, creds);
   }
 
   static async refresh(): Promise<AxiosResponse<ILoginResponse>> {
