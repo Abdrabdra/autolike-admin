@@ -50,11 +50,11 @@ const AnnounceBox: FC<Props> = ({ aData }) => {
             src={`${$image_api}${a?.images[0]?.image}`}
             sx={{
               flex: 1,
-              height: "100%",
+              width: "100%",
               borderRadius: "15px",
 
               backgroundRepeat: "no-repeat",
-              objectFit: "cover",
+              objectFit: "contain",
               objectPosition: "center",
             }}
           />
