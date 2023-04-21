@@ -1,0 +1,33 @@
+.images {
+  padding-bottom: 16px !important;
+
+  /* Common Styles */
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+  }
+
+  .swiper-pagination-bullet {
+    display: inline-block !important;
+    width: 8px;
+    height: 8px;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #2dc36a;
+    width: 8px;
+    height: 8px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #2dc36a;
+  }
+}

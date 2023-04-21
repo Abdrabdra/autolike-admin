@@ -4,6 +4,7 @@ import { $image_api } from "../../../../api";
 import { IOneAnnouncementResponse } from "../../../../types/Announcement/OneAnnouncement.type";
 import { StatementEnum, WheelEnum } from "../../../../types/Enums";
 import numberWithSpaces from "../../../../utils/numberWithSpaces";
+import AnnounceBoxImage from "./AnnounceBoxImage";
 
 interface Props {
   aData: IOneAnnouncementResponse;
@@ -37,7 +38,9 @@ const AnnounceBox: FC<Props> = ({ aData }) => {
       }}
     >
       <Stack sx={{ flex: 1.25 }}>
-        <Stack
+        <AnnounceBoxImage images={a.images} />
+
+        {/* <Stack
           sx={{
             backgroundColor: "#000",
             flex: 1,
@@ -58,7 +61,7 @@ const AnnounceBox: FC<Props> = ({ aData }) => {
               objectPosition: "center",
             }}
           />
-        </Stack>
+        </Stack> */}
       </Stack>
       <Stack spacing={2} sx={{ flex: 1 }}>
         <Stack
