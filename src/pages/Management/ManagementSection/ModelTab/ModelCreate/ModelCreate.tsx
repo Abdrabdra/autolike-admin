@@ -46,14 +46,14 @@ const CreateModel = () => {
                   label="Артикул Марки"
                   data={markaData?.data}
                   state={values.markaId}
-                  setState={setFieldValue}
+                  setFieldValue={setFieldValue}
                   fieldName={"markaId"}
                 />
                 <BaseSelect
                   label="Артикул Кузова"
                   data={bodyData}
                   state={values.bodyTypeId}
-                  setState={setFieldValue}
+                  setFieldValue={setFieldValue}
                   fieldName={"bodyTypeId"}
                 />
               </Stack>
