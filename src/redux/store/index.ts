@@ -2,6 +2,18 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 //reducer
 import complaint from "./../store/reducers/complaint/complaint.slice";
 import user from "./../store/reducers/user/user.slice";
@@ -19,8 +31,19 @@ import managementApi from "./rtk-api/management-rtk/managementApi";
 import cityApi from "./rtk-api/city-rtk/cityApi";
 import announcementApi from "./rtk-api/announcement-rtk/announcementApi";
 
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["auth", "stepper"],
+};
+
+const AuthPersistConfig = {
+  key: "auth",
+  storage: storage,
+};
+
 const rootReducer = combineReducers({
-  auth: authReducer,
+  auth: persistReducer(AuthPersistConfig, authReducer),
   filter: filterReducer,
 
   [managementApi.reducerPath]: managementApi.reducer,
@@ -39,11 +62,15 @@ const rootReducer = combineReducers({
   profile,
 });
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(
       userApi.middleware,
 
       managementApi.middleware,
@@ -52,6 +79,7 @@ export const store = configureStore({
     ),
 });
 
+export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;

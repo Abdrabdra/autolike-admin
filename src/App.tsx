@@ -36,7 +36,10 @@ function App() {
     <>
       <MainContext.Provider value={{ lastPage, setPage }}>
         <Routes>
-          <Route path="/" element={<Navigate to={isAuth ? "/app" : "/auth"} />} />
+          <Route
+            path="/"
+            element={<Navigate to={isAuth ? "/app" : "/auth"} />}
+          />
           <Route
             path="/app/*"
             element={isAuth ? <Main /> : <Navigate to="/auth" />}

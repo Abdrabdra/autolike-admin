@@ -7,7 +7,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
   endpoints: (builder) => ({
     getMarka: builder.query<IGetMarkaResponse, any>({
       query: () => ({
-        url: `marka`,
+        url: `marka?limit=100&page=1`,
         method: "GET",
       }),
       providesTags: ["marka"],
@@ -25,6 +25,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
         url: `marka/${arg.id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["marka"],
     }),
 
     getModel: builder.query<IGetMarkaResponse, any>({
@@ -50,6 +51,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
         url: `model/${arg.id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["model"],
     }),
 
     getBody: builder.query<IMarka[], string>({

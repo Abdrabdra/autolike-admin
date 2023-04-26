@@ -9,7 +9,7 @@ interface IInitState {
 }
 
 const initialState: IInitState = {
-  isAuth: false,
+  isAuth: true,
   error: null,
   status: ActionsEnum.IDLE,
 };
@@ -39,6 +39,9 @@ const authReducer = createSlice({
         // debugger
       })
       .addCase(logout.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(logout.rejected, () => {
         return initialState;
       })
       .addCase(refresh.pending, (state) => {

@@ -19,7 +19,7 @@ import {
 
 // store
 import { logout } from "../../redux/store/reducers/auth/auth.action";
-import { useTypedSelector } from "../../redux/store";
+import { AppDispatch, useTypedSelector } from "../../redux/store";
 
 import HeaderLogo from "../../assets/images/drawer_header.svg";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
@@ -27,7 +27,7 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 
 const DrawerAdmin = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const role = useTypedSelector((state) => state.user.role);
 
@@ -113,12 +113,8 @@ const DrawerAdmin = () => {
       </Stack>
       <Stack>
         <List>
-          <StyledNavLink to="">
-            <StyledListItem
-              // @ts-ignore
-              onClick={() => dispatch(logout())}
-              sx={{ color: "#F18989", mb: "35px" }}
-            >
+          <StyledNavLink to="" onClick={() => dispatch(logout())}>
+            <StyledListItem sx={{ color: "#F18989", mb: "35px" }}>
               <StyledListItemIcon>{/* <LogoutLogo /> */}</StyledListItemIcon>
               Выйти
             </StyledListItem>

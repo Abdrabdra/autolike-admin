@@ -3,10 +3,18 @@ import { Formik } from "formik";
 
 import MainBaseButton from "../../../../../components/Button/MainBaseButton/MainBaseButton";
 import { StyledMainInput } from "../../../../../components/Input/StyledMainInput";
-import { useCreateModelMutation } from "../../../../../redux/store/rtk-api/management-rtk/managementEndpoints";
+import BaseSelect from "../../../../../components/Select/BaseSelect";
+import {
+  useCreateModelMutation,
+  useGetBodyQuery,
+  useGetMarkaQuery,
+} from "../../../../../redux/store/rtk-api/management-rtk/managementEndpoints";
 
 const CreateModel = () => {
   const [create] = useCreateModelMutation();
+
+  const { data: markaData } = useGetMarkaQuery("");
+  const { data: bodyData } = useGetBodyQuery("");
 
   return (
     <Stack>
@@ -22,7 +30,7 @@ const CreateModel = () => {
           });
         }}
       >
-        {({ values, handleChange, handleSubmit }) => (
+        {({ values, handleChange, handleSubmit, setFieldValue }) => (
           <form onSubmit={handleSubmit}>
             <Stack spacing={2}>
               <StyledMainInput
@@ -34,20 +42,19 @@ const CreateModel = () => {
               />
 
               <Stack direction="row" spacing={2}>
-                <StyledMainInput
-                  label={"Артикул Марки"}
-                  value={values.markaId}
-                  onChange={handleChange}
-                  name={"markaId"}
-                  bordercolor={"primary"}
+                <BaseSelect
+                  label="Артикул Марки"
+                  data={markaData?.data}
+                  state={values.markaId}
+                  setState={setFieldValue}
+                  fieldName={"markaId"}
                 />
-
-                <StyledMainInput
-                  label={"Артикул Кузова"}
-                  value={values.bodyTypeId}
-                  onChange={handleChange}
-                  name={"bodyTypeId"}
-                  bordercolor={"primary"}
+                <BaseSelect
+                  label="Артикул Кузова"
+                  data={bodyData}
+                  state={values.bodyTypeId}
+                  setState={setFieldValue}
+                  fieldName={"bodyTypeId"}
                 />
               </Stack>
 

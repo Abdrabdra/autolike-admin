@@ -2,10 +2,16 @@ import { Stack } from "@mui/material";
 import { Formik } from "formik";
 import MainBaseButton from "../../../../../components/Button/MainBaseButton/MainBaseButton";
 import { StyledMainInput } from "../../../../../components/Input/StyledMainInput";
-import { useCreateGenerationMutation } from "../../../../../redux/store/rtk-api/management-rtk/managementEndpoints";
+import BaseSelect from "../../../../../components/Select/BaseSelect";
+import {
+  useCreateGenerationMutation,
+  useGetModelQuery,
+} from "../../../../../redux/store/rtk-api/management-rtk/managementEndpoints";
 
 const GenerationCreate = () => {
   const [createGeneration] = useCreateGenerationMutation();
+
+  const { data: modelData } = useGetModelQuery("");
 
   return (
     <Stack>
@@ -25,7 +31,7 @@ const GenerationCreate = () => {
           })
         }
       >
-        {({ values, handleChange, handleSubmit }) => (
+        {({ values, handleChange, handleSubmit, setFieldValue }) => (
           <form onSubmit={handleSubmit}>
             <Stack spacing={2}>
               <Stack spacing={2}>
@@ -39,19 +45,18 @@ const GenerationCreate = () => {
                     required
                   />
 
-                  <StyledMainInput
-                    label={"Артикул Модели"}
-                    value={values.modelId}
-                    onChange={handleChange}
-                    name={"modelId"}
-                    bordercolor={"primary"}
-                    required
+                  <BaseSelect
+                    label="Артикул Модели"
+                    data={modelData?.data}
+                    state={values.modelId}
+                    setFieldValue={setFieldValue}
+                    fieldName={"modelId"}
                   />
                 </Stack>
 
                 <Stack direction="row" spacing={1}>
                   <StyledMainInput
-                    label={"Создано с"}
+                    label={"Создано с (2020)"}
                     value={values.createdFrom}
                     onChange={handleChange}
                     name={"createdFrom"}
@@ -60,7 +65,7 @@ const GenerationCreate = () => {
                   />
 
                   <StyledMainInput
-                    label={"Длилось до"}
+                    label={"Длилось до (2023)"}
                     value={values.createdTo}
                     onChange={handleChange}
                     name={"createdTo"}
