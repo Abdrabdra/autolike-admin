@@ -63,6 +63,14 @@ export const announcementEndpoints = announcementApi.injectEndpoints({
       }),
       invalidatesTags: ["announcements"],
     }),
+
+    deleteAnnouncement: builder.mutation<any, any>({
+      query: (arg) => ({
+        url: `/announcement/${arg}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["announcements"],
+    }),
   }),
 });
 
@@ -75,4 +83,5 @@ export const {
   useCreateAnnouncementMutation,
 
   useUpdateStatusAnnouncementMutation,
+  useDeleteAnnouncementMutation,
 } = announcementEndpoints;

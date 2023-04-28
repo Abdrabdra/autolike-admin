@@ -32,6 +32,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
       query: () => ({
         url: `model`,
         method: "GET",
+        params: { limit: 100 },
       }),
       providesTags: ["model"],
     }),
@@ -87,6 +88,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
       query: (arg) => {
         return {
           url: `/generation${arg.modelId ? `/${arg.modelId}` : ""}`,
+          params: { limit: 100 },
         };
       },
       providesTags: ["generation"],
@@ -97,7 +99,7 @@ export const managementEndpoints = managementApi.injectEndpoints({
         title: string;
         modelId?: number;
         createdFrom?: number;
-        createdTo?: number;
+        createdTo?: number | string;
       }
     >({
       query: (body) => {

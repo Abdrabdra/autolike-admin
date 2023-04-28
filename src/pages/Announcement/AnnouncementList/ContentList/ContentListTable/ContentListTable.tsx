@@ -7,10 +7,11 @@ import {
   TableHead,
   Typography,
 } from "@mui/material";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainBaseButton from "../../../../../components/Button/MainBaseButton/MainBaseButton";
 import ChipStatus from "../../../../../components/Chip/ChipStatus";
+import BaseModal from "../../../../../components/Modal/BaseModal";
 import {
   StyledBodyCell,
   StyledBodyCellFirst,
@@ -25,6 +26,7 @@ import {
   IAnnouncement,
 } from "../../../../../types/Announcement/Announcement.type";
 import numberWithSpaces from "../../../../../utils/numberWithSpaces";
+import DeleteModal from "./DeleteModal";
 
 const tableHead = ["Объявление", "Статус", "Категория"];
 
@@ -80,13 +82,17 @@ const ContentListTable: FC<Props> = ({ tableData }) => {
               </StyledBodyCell>
               <StyledBodyCell>Автомобиль</StyledBodyCell>
               <StyledBodyCellLast>
-                <MainBaseButton
-                  onClick={() => handleNavigate(row.id)}
-                  bgcolor="#2DC36A"
-                  sx={{ height: "40px", maxWidth: "180px" }}
-                >
-                  Подробнее
-                </MainBaseButton>
+                <Stack justifyContent={"end"} spacing={2} direction="row">
+                  <MainBaseButton
+                    onClick={() => handleNavigate(row.id)}
+                    bgcolor="#2DC36A"
+                    sx={{ height: "40px", maxWidth: "180px" }}
+                  >
+                    Подробнее
+                  </MainBaseButton>
+
+                  <DeleteModal id={row.id} />
+                </Stack>
               </StyledBodyCellLast>
             </StyledBodyRow>
           ))}

@@ -27,7 +27,7 @@ const GenerationCreate = () => {
             title: values.title,
             modelId: Number(values.modelId),
             createdFrom: Number(values.createdFrom),
-            createdTo: Number(values.createdTo),
+            createdTo: values.createdTo,
           })
         }
       >
@@ -70,7 +70,7 @@ const GenerationCreate = () => {
                     onChange={handleChange}
                     name={"createdTo"}
                     bordercolor={"primary"}
-                    required
+                    // required
                   />
                 </Stack>
               </Stack>
