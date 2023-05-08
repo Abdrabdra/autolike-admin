@@ -2,7 +2,7 @@ import axios from "axios";
 import { mainModule } from "process";
 import { AuthService } from "../redux/service/auth/auth.service";
 
-export const DEV_API = "https://avtolike.kz/";
+export const DEV_API = "https://api.avtolike.kz/";
 // export const DEV_API = "http://localhost:3000/";
 // export const PROD_API = "https://";
 
