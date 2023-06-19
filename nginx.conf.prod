@@ -1,6 +1,6 @@
 server {
    listen 80;
-   server_name 164.92.69.52;
+   server_name admin.avtolike.kz;
    location / {
      proxy_pass http://front:3000/;
 }
