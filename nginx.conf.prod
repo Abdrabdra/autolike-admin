@@ -1,8 +1,14 @@
 server {
    listen 80;
    server_name admin.avtolike.kz;
+location ~ /.well-known/acme-challenge {
+            allow all;
+            root /var/www/html;
+     }
    location / {
      proxy_pass http://front:3000/;
 }
+
+
 
 }
